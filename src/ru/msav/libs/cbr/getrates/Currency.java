@@ -24,12 +24,52 @@
 package ru.msav.libs.cbr.getrates;
 
 /**
- *
+ * Currency data class.
+ * 
  * @author msav
  */
 public class Currency {
     
-    public String Code;
+    /**
+     * CBR currency ID
+     */
+    public String ID;
+    
+    /**
+     * International currency numeric code.
+     */
+    public String NumCode;
+    
+    /**
+     * International currency character code.
+     */
+    public String CharCode;
+    
+    /**
+     * Nominal exchange rate.
+     */
+    public Double Nominal;
+    
+    /**
+     * Localized currency name.
+     */
+    public String Name;
+    
+    /**
+     * Exchange rate.
+     */
     public Double Rate;
+    
+    /**
+     * Default Costructor
+     */
+    public Currency() {
+        ID = "";
+        NumCode = "";
+        CharCode = "";
+        Nominal = 1.0;
+        Name = "";
+        Rate = 0.0;
+    }
     
 }
