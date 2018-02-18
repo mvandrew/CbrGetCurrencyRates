@@ -35,6 +35,9 @@ public class CurrencyTest {
     
     private Currency CurrencyObject;
     
+    /**
+     * Initialize a simple currency object.
+     */
     public CurrencyTest() {
         CurrencyObject = new Currency();
         CurrencyObject.ID = "R01235";
@@ -45,9 +48,17 @@ public class CurrencyTest {
         CurrencyObject.Rate = 56.98;
     }
     
+    /**
+     * Test a simple currency object.
+     */
     @Test
     public void testCurrencyConstructor() {
         assertEquals("Unexpected USD currentcy ID", CurrencyObject.ID, "R01235");
+        assertEquals("Unexpected USD currentcy NumCode", CurrencyObject.NumCode, "840");
+        assertEquals("Unexpected USD currentcy CharCode", CurrencyObject.CharCode, "USD");
+        assertEquals("Unexpected USD currentcy Nominal", Double.compare(CurrencyObject.Nominal, 1.0), 0);
+        assertEquals("Unexpected USD currentcy Name", CurrencyObject.Name, "Доллар США");
+        assertEquals("Unexpected USD currentcy Rate", Double.compare(CurrencyObject.Rate, 56.98), 0);
     }
     
 }
