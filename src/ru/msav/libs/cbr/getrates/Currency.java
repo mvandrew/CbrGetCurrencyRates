@@ -23,6 +23,9 @@
  */
 package ru.msav.libs.cbr.getrates;
 
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
 /**
  * Currency data class.
  * 
@@ -70,6 +73,29 @@ public class Currency {
         Nominal = 1.0;
         Name = "";
         Rate = 0.0;
+    }
+    
+    /**
+     * A currency constructor using an XML node.
+     * @param currencyNode 
+     */
+    public Currency(Node currencyNode) {
+        this();
+        
+        NodeList nodeList = currencyNode.getChildNodes();
+        int length = nodeList.getLength();
+        Node curNode;
+        for (int i = 0; i < length; i++) {
+            curNode = nodeList.item(i);
+            switch (curNode.getNodeName()) {
+                case "CharCode":
+                    CharCode = curNode.getFirstChild().getNodeValue();
+                    break;
+                case "Value":
+                    Rate = Double.parseDouble(curNode.getFirstChild().getNodeValue().replace(',', '.'));
+                    break;
+            }
+        }
     }
     
 }
